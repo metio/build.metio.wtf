@@ -1,15 +1,15 @@
 import groovy.json.JsonSlurper
 
-def folder = "sebhoss";
+def org = "sebhoss";
 def slurper = new JsonSlurper()
-def jsonText = readFileFromWorkspace("${folder}/projects.json")
+def jsonText = readFileFromWorkspace("${org}/projects.json")
 def json = slurper.parseText(jsonText)
 
 listView("Deployments") {
     description("All deploying jobs of modules that use the maven-build-process")
     jobs {
         json.each {
-            name("${folder}/${it.name}/${it.name}_deploy_to_local-nexus")
+            name("${org}/${it.name}/${it.name}_deploy_to_local-nexus")
         }
     }
     recurse(true)
@@ -28,8 +28,8 @@ listView("Latest Parent") {
     description("All deploying jobs of modules that use the maven-build-process")
     jobs {
         json.each {
-            name("${folder}/${it.name}/${it.name}_with_latest_snapshot_parent")
-            name("${folder}/${it.name}/${it.name}_with_latest_stable_parent")
+            name("${org}/${it.name}/${it.name}_with_latest_snapshot_parent")
+            name("${org}/${it.name}/${it.name}_with_latest_stable_parent")
         }
     }
     recurse(true)
@@ -48,10 +48,10 @@ listView("Failure") {
     description('All failing jobs')
     jobs {
         json.each {
-            name("${folder}/${it.name}/${it.name}_deploy_to_local-nexus")
+            name("${org}/${it.name}/${it.name}_deploy_to_local-nexus")
             if (!"maven-build-process".equals(it.name)) {
-                name("${folder}/${it.name}/${it.name}_with_latest_snapshot_parent")
-                name("${folder}/${it.name}/${it.name}_with_latest_stable_parent")
+                name("${org}/${it.name}/${it.name}_with_latest_snapshot_parent")
+                name("${org}/${it.name}/${it.name}_with_latest_stable_parent")
             }
         }
     }
@@ -77,10 +77,10 @@ listView("Success") {
     description('All successful jobs')
     jobs {
         json.each {
-            name("${folder}/${it.name}/${it.name}_deploy_to_local-nexus")
+            name("${org}/${it.name}/${it.name}_deploy_to_local-nexus")
             if (!"maven-build-process".equals(it.name)) {
-                name("${folder}/${it.name}/${it.name}_with_latest_snapshot_parent")
-                name("${folder}/${it.name}/${it.name}_with_latest_stable_parent")
+                name("${org}/${it.name}/${it.name}_with_latest_snapshot_parent")
+                name("${org}/${it.name}/${it.name}_with_latest_stable_parent")
             }
         }
     }

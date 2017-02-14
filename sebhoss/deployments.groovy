@@ -1,14 +1,14 @@
 import groovy.json.JsonSlurper
 
-def folder = "sebhoss";
+def org = "sebhoss";
 def slurper = new JsonSlurper()
-def jsonText = readFileFromWorkspace("${folder}/projects.json")
+def jsonText = readFileFromWorkspace("${org}/projects.json")
 def json = slurper.parseText(jsonText)
 
 json.each {
     def project = it
     folder(project.name)
-    job("${folder}/${project.name}/${project.name}_deploy") {
+    job("${org}/${project.name}/${project.name}_deploy") {
         logRotator {
             numToKeep(5)
             daysToKeep(7)
@@ -49,7 +49,7 @@ listView("Deployments") {
     description("All jobs that deploy artifacts")
     jobs {
         json.each {
-            name("${folder}/${it.name}/${it.name}_deploy_to_local-nexus")
+            name("${org}/${it.name}/${it.name}_deploy_to_local-nexus")
         }
     }
     recurse(true)
