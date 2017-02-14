@@ -1,0 +1,84 @@
+[
+    {
+        "name": "fiscal-year",
+        "repository": "sebhoss/fiscal-year",
+        "mbp": true,
+        "upstreams": [
+            {
+                "name": "suppress-warnings",
+                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
+            }
+        ]
+    },
+    {
+        "name": "generic-types",
+        "repository": "sebhoss/generic-types",
+        "mbp": true,
+        "upstreams": [
+            {
+                "name": "suppress-warnings",
+                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
+            }
+        ]
+    },
+    {
+        "name": "null-analysis",
+        "repository": "sebhoss/null-analysis",
+        "mbp": true,
+        "upstreams": []
+    },
+    {
+        "name": "reguloj",
+        "repository": "sebhoss/reguloj",
+        "mbp": true,
+        "upstreams": [
+            {
+                "name": "suppress-warnings",
+                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
+            },
+            {
+                "name": "null-analysis",
+                "include": "de.xn--ho-hia.quality:null-analysis:*"
+            }
+        ]
+    },
+    {
+        "name": "suppress-warnings",
+        "repository": "sebhoss/suppress-warnings",
+        "mbp": true,
+        "upstreams": []
+    },
+    {
+        "name": "storage-units",
+        "repository": "sebhoss/storage-units",
+        "mbp": true,
+        "upstreams": [
+            {
+                "name": "suppress-warnings",
+                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
+            }
+        ]
+    },
+    {
+        "name": "maven-build-process",
+        "repository": "sebhoss/maven-build-process"
+    },
+    {
+        "name": "memoization.java",
+        "repository": "sebhoss/memoization.java",
+        "mbp": true,
+        "upstreams": []
+    },
+    {
+        "name": "truth-property-proposition",
+        "repository": "sebhoss/truth-property-proposition",
+        "mbp": true,
+        "upstreams": []
+    },
+    {
+        "name": "yosql",
+        "repository": "sebhoss/yosql",
+        "mbp": true,
+        "upstreams": []
+    }
+]
