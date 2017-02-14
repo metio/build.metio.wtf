@@ -1,6 +1,6 @@
 import groovy.json.JsonSlurper
 
-def projectCatalog = new File("projects.json")
+def projectCatalog = new File("sebhoss/projects.json")
 def slurper = new JsonSlurper()
 def jsonText = projectCatalog.getText()
 def json = slurper.parseText(jsonText)
