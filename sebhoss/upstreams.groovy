@@ -1,7 +1,8 @@
 import groovy.json.JsonSlurper
 
+def folder = "sebhoss";
 def slurper = new JsonSlurper()
-def jsonText = readFileFromWorkspace('sebhoss/projects.json')
+def jsonText = readFileFromWorkspace("${folder}/projects.json")
 def json = slurper.parseText(jsonText)
 
 json.each {
@@ -9,7 +10,7 @@ json.each {
     folder(project.name)
     project.upstreams.each {
         def upstreamProject = it
-        job("${project.name}/${project.name}_with_latest_snapshot_${upstreamProject.name}") {
+        job("${folder}/${project.name}/${project.name}_with_latest_snapshot_${upstreamProject.name}") {
             blockOnUpstreamProjects()
             logRotator {
                 numToKeep(5)
@@ -19,7 +20,7 @@ json.each {
                 github(project.repository)
             }
             triggers {
-                upstream("${upstreamProject.name}/${upstreamProject.name}", "SUCCESS")
+                upstream("${folder}/${upstreamProject.name}/${upstreamProject.name}", "SUCCESS")
             }
             steps {
                 maven {
@@ -46,7 +47,7 @@ json.each {
                 }
             }
         }
-        job("${project.name}/${project.name}_with_latest_stable_${upstreamProject.name}") {
+        job("${folder}/${project.name}/${project.name}_with_latest_stable_${upstreamProject.name}") {
             blockOnUpstreamProjects()
             logRotator {
                 numToKeep(5)
