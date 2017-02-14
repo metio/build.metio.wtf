@@ -7,7 +7,7 @@ def json = slurper.parseText(jsonText)
 
 json.each {
     def project = it
-    folder(project.name)
+    folder("${org}/${project.name}")
     project.upstreams.each {
         def upstreamProject = it
         job("${org}/${project.name}/${project.name}_with_latest_snapshot_${upstreamProject.name}") {

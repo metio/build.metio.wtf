@@ -7,7 +7,7 @@ def json = slurper.parseText(jsonText).findAll { it.mbp }
 
 json.each {
     def project = it
-    folder(project.name)
+    folder("${org}/${project.name}")
     job("${org}/${project.name}/${project.name}_with_latest_snapshot_parent") {
         blockOnUpstreamProjects()
         logRotator {

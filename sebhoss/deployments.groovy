@@ -7,7 +7,7 @@ def json = slurper.parseText(jsonText)
 
 json.each {
     def project = it
-    folder(project.name)
+    folder("${org}/${project.name}")
     job("${org}/${project.name}/${project.name}_deploy") {
         logRotator {
             numToKeep(5)
