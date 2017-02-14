@@ -1,8 +1,7 @@
 import groovy.json.JsonSlurper
 
-def projectCatalog = readFileFromWorkspace('sebhoss/projects.json')
 def slurper = new JsonSlurper()
-def jsonText = projectCatalog.getText()
+def jsonText = readFileFromWorkspace('sebhoss/projects.json')
 def json = slurper.parseText(jsonText).findAll { it.mbp }
 
 json.each {
