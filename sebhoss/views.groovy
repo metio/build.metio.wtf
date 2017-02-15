@@ -2,16 +2,13 @@ import groovy.json.JsonSlurper
 
 def org = "sebhoss";
 def slurper = new JsonSlurper()
+// https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands#reading-files-from-workspace
 def jsonText = readFileFromWorkspace("${org}/projects.json")
 def json = slurper.parseText(jsonText)
 
 listView("Failure") {
     description('All failing jobs')
     jobs {
-        def project = it
-        json.each {
-            name("${org}/${project.name}/${project.name}_verify")
-        }
         name("${org}")
     }
     jobFilters {
@@ -38,6 +35,7 @@ listView("Success") {
         json.each {
             name("${org}/${it.name}/${it.name}")
         }
+        name("${org}")
     }
     jobFilters {
         status {
