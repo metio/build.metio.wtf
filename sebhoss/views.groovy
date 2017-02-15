@@ -9,7 +9,7 @@ def json = slurper.parseText(jsonText)
 listView("Failure") {
     description('All failing jobs')
     jobs {
-        name("${org}")
+        regex("/${org}/.+/.+/")
     }
     jobFilters {
         status {
@@ -32,11 +32,7 @@ listView("Failure") {
 listView("Success") {
     description('All successful jobs')
     jobs {
-        json.each {
-            def project = it
-            name("${org}/${project.name}/${project.name}")
-        }
-        name("${org}")
+        regex("/${org}/.+/.+/")
     }
     jobFilters {
         status {
