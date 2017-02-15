@@ -8,9 +8,11 @@ def json = slurper.parseText(jsonText)
 listView("Failure") {
     description('All failing jobs')
     jobs {
+        def project = it
         json.each {
-            name("${org}/${it.name}/${it.name}_verify")
+            name("${org}/${project.name}/${project.name}_verify")
         }
+        name("${org}")
     }
     jobFilters {
         status {
