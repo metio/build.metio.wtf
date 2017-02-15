@@ -33,7 +33,8 @@ listView("Success") {
     description('All successful jobs')
     jobs {
         json.each {
-            name("${org}/${it.name}/${it.name}")
+            def project = it
+            name("${org}/${project.name}/${project.name}")
         }
         name("${org}")
     }
