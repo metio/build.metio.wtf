@@ -32,7 +32,7 @@ listView("Failure") {
 listView("Success") {
     description('All successful jobs')
     jobs {
-        regex("/${org}/.+/.+/")
+        regex("${org}/.+/.+")
     }
     jobFilters {
         status {
