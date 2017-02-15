@@ -1,63 +1,27 @@
 [
     {
         "name": "fiscal-year",
-        "repository": "sebhoss/fiscal-year",
-        "mbp": true,
-        "upstreams": [
-            {
-                "name": "suppress-warnings",
-                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
-            }
-        ]
+        "repository": "sebhoss/fiscal-year"
     },
     {
         "name": "generic-types",
-        "repository": "sebhoss/generic-types",
-        "mbp": true,
-        "upstreams": [
-            {
-                "name": "suppress-warnings",
-                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
-            }
-        ]
+        "repository": "sebhoss/generic-types"
     },
     {
         "name": "null-analysis",
-        "repository": "sebhoss/null-analysis",
-        "mbp": true,
-        "upstreams": []
+        "repository": "sebhoss/null-analysis"
     },
     {
         "name": "reguloj",
-        "repository": "sebhoss/reguloj",
-        "mbp": true,
-        "upstreams": [
-            {
-                "name": "suppress-warnings",
-                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
-            },
-            {
-                "name": "null-analysis",
-                "include": "de.xn--ho-hia.quality:null-analysis:*"
-            }
-        ]
+        "repository": "sebhoss/reguloj"
     },
     {
         "name": "suppress-warnings",
-        "repository": "sebhoss/suppress-warnings",
-        "mbp": true,
-        "upstreams": []
+        "repository": "sebhoss/suppress-warnings"
     },
     {
         "name": "storage-units",
-        "repository": "sebhoss/storage-units",
-        "mbp": true,
-        "upstreams": [
-            {
-                "name": "suppress-warnings",
-                "include": "de.xn--ho-hia.quality:suppress-warnings:*"
-            }
-        ]
+        "repository": "sebhoss/storage-units"
     },
     {
         "name": "maven-build-process",
@@ -65,20 +29,14 @@
     },
     {
         "name": "memoization.java",
-        "repository": "sebhoss/memoization.java",
-        "mbp": true,
-        "upstreams": []
+        "repository": "sebhoss/memoization.java"
     },
     {
         "name": "truth-property-proposition",
-        "repository": "sebhoss/truth-property-proposition",
-        "mbp": true,
-        "upstreams": []
+        "repository": "sebhoss/truth-property-proposition"
     },
     {
         "name": "yosql",
-        "repository": "sebhoss/yosql",
-        "mbp": true,
-        "upstreams": []
+        "repository": "sebhoss/yosql"
     }
 ]
