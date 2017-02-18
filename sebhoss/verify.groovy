@@ -24,11 +24,6 @@ json.each {
             credentialsBinding {
                 string('sonar_token', 'sonar.login')
             }
-            configFiles {
-                globalMavenSettings('repository.metio.wtf') {
-                    targetLocation('repository.metio.wtf.xml')
-                }
-            }
         }
         steps {
             maven {
