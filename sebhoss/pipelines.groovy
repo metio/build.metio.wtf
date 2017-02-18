@@ -4,7 +4,7 @@ def org = "sebhoss";
 def slurper = new JsonSlurper()
 // https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands#reading-files-from-workspace
 def jsonText = readFileFromWorkspace("${org}/projects.json")
-def json = slurper.parseText(jsonText)
+def json = slurper.parseText(jsonText).findAll { it.pipelines }
 
 json.each {
     def project = it

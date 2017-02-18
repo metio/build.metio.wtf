@@ -5,9 +5,9 @@ node {
 
     stage("sebhoss") {
         jobDsl scriptText: 'folder("sebhoss")'
+        jobDsl targets: 'sebhoss/pipelines.groovy'
 
-        jobDsl targets: ['sebhoss/pipelines.groovy',
-            'sebhoss/verify.groovy',
+        jobDsl targets: ['sebhoss/verify.groovy',
             'sebhoss/views.groovy'].join('\n'),
                removedJobAction: 'DELETE',
                removedViewAction: 'DELETE',
