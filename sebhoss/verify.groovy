@@ -20,6 +20,11 @@ json.each {
         triggers {
             githubPush()
         }
+        wrappers {
+            credentialsBinding {
+                string('sonar_token', 'sonar.login')
+            }
+        }
         steps {
             maven {
                 goals("clean")
@@ -33,6 +38,7 @@ json.each {
                 goals("sonar:sonar")
                 properties("sonar.host.url": "https://quality.metio.wtf")
                 properties("sonar.pitest.mode": "reuseReport")
+                properties("sonar.login": '${sonar_token}')
                 mavenInstallation("maven-latest")
                 providedGlobalSettings("repository.metio.wtf")
             }
