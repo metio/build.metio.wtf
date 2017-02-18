@@ -8,8 +8,10 @@ def json = slurper.parseText(jsonText)
 
 json.each {
     def project = it
+    println "${project.name}"
     project.pipelines.each {
         def pipeline = it
+        println "${pipeline.name}"
         folder("${org}/${project.name}")
         pipelineJob(${org}/${project.name}-${pipeline.name}) {
             logRotator {
@@ -22,19 +24,10 @@ json.each {
             triggers {
                 githubPush()
             }
-            wrappers {
-                preBuildCleanup()
-            }
             definition {
                 cps {
                     script(readFileFromWorkspace(pipeline.path))
                     sandbox()
-                }
-            }
-            publishers {
-                irc {
-                    strategy("ALL")
-                    notificationMessage("SummaryOnly")
                 }
             }
         }
