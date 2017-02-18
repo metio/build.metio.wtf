@@ -12,6 +12,7 @@ json.each {
     project.pipelines.each {
         def pipeline = it
         out.println("${pipeline.name}")
+        out.println("${pipeline.path}")
         folder("${org}/${project.name}")
         pipelineJob(${org}/${project.name}-${pipeline.name}) {
             logRotator {
