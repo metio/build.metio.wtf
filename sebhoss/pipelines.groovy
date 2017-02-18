@@ -8,10 +8,10 @@ def json = slurper.parseText(jsonText)
 
 json.each {
     def project = it
-    println "${project.name}"
+    out.println("${project.name}")
     project.pipelines.each {
         def pipeline = it
-        println "${pipeline.name}"
+        out.println("${pipeline.name}")
         folder("${org}/${project.name}")
         pipelineJob(${org}/${project.name}-${pipeline.name}) {
             logRotator {
