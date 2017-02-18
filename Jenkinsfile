@@ -1,4 +1,8 @@
 node {
+    stage('Checkout') {
+        checkout scm
+    }
+
     stage("configuration") {
         jobDsl targets: ['configFiles.groovy'].join('\n')
     }
