@@ -11,7 +11,8 @@ node {
             'sebhoss/verify.groovy',
             'sebhoss/views.groovy'].join('\n'),
                removedJobAction: 'DELETE',
-               removedViewAction: 'DELETE'
+               removedViewAction: 'DELETE',
+               ignoreMissingFiles: true
     }
 
 }
