@@ -26,10 +26,10 @@
     {
         "name": "maven-build-process",
         "repository": "sebhoss/maven-build-process",
-        "pipelines": {
-            "release": "build/jenkins/Release",
-            "preview": "build/jenkins/Preview"
-        }
+        "pipelines": [
+            {"name": "release", "path": "build/jenkins/Release"},
+            {"name": "preview", "path": "build/jenkins/Preview"}
+        ]
     },
     {
         "name": "memoization.java",

@@ -8,9 +8,10 @@ def json = slurper.parseText(jsonText)
 
 json.each {
     def project = it
-    project.pipelines.each { name, path ->
+    project.pipelines.each {
+        def pipeline = it
         folder("${org}/${project.name}")
-        pipelineJob(${org}/${project.name}-${name}) {
+        pipelineJob(${org}/${project.name}-${pipeline.name}) {
             logRotator {
                 numToKeep(5)
                 daysToKeep(7)
@@ -26,7 +27,7 @@ json.each {
             }
             definition {
                 cps {
-                    script(readFileFromWorkspace(path))
+                    script(readFileFromWorkspace(pipeline.path))
                     sandbox()
                 }
             }
