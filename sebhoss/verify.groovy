@@ -24,6 +24,7 @@ json.each {
             credentialsBinding {
                 string('sonar_token', 'sonar.login')
             }
+            preBuildCleanup()
         }
         steps {
             maven {
