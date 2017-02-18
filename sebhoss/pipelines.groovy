@@ -14,17 +14,7 @@ json.each {
         out.println("${pipeline.name}")
         out.println("${pipeline.path}")
         folder("${org}/${project.name}")
-        pipelineJob(${org}/${project.name}-${pipeline.name}) {
-            logRotator {
-                numToKeep(5)
-                daysToKeep(7)
-            }
-            scm {
-                github(project.repository)
-            }
-            triggers {
-                githubPush()
-            }
+        pipelineJob(${org}/${project.name}_${pipeline.name}) {
             definition {
                 cps {
                     script(readFileFromWorkspace(pipeline.path))
