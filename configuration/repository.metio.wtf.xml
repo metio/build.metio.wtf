@@ -13,6 +13,7 @@
         </property>
       </activation>
       <properties>
+        <!-- http://central.sonatype.org/pages/apache-maven.html#distribution-management-and-authentication -->
         <staging-url>https://oss.sonatype.org/content/repositories/snapshots</staging-url>
         <staging-id>sonatype-nexus</staging-id>
         <nexus-url>https://oss.sonatype.org/</nexus-url>
