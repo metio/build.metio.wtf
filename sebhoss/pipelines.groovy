@@ -25,7 +25,7 @@ json.each {
             definition {
                 cpsScm {
                     scm {
-                        github(project.repository)
+                        github(project.repository, pipeline.branch)
                     }
                     scriptPath(pipeline.path)
                 }
