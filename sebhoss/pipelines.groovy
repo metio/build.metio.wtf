@@ -25,8 +25,10 @@ json.each {
                     }
                 }
             }
-            triggers {
-                githubPush()
+            if (pipeline.trigger == "push") {
+                triggers {
+                    githubPush()
+                }
             }
             definition {
                 cpsScm {
