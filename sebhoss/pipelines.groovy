@@ -26,9 +26,11 @@ json.each {
                 githubPush()
             }
             definition {
-                cps {
-                    script(readFileFromWorkspace(pipeline.path))
-                    sandbox()
+                cpsScm {
+                    scm {
+                        github(project.repository)
+                    }
+                    scriptPath(pipeline.path)
                 }
             }
         }
