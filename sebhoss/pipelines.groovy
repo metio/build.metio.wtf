@@ -18,8 +18,9 @@ json.each {
             }
             scm {
                 git {
+                    branch(pipeline.branch)
                     remote {
-                        github(project.repository, pipeline.branch)
+                        github(project.repository)
                         credentials('build-metio-wtf-github')
                     }
                 }
@@ -31,8 +32,9 @@ json.each {
                 cpsScm {
                     scm {
                         git {
+                            branch(pipeline.branch)
                             remote {
-                                github(project.repository, pipeline.branch)
+                                github(project.repository)
                                 credentials('build-metio-wtf-github')
                             }
                         }
