@@ -4,7 +4,7 @@ configFiles {
     globalMavenSettingsConfig {
         id('repository.metio.wtf')
         name('repository.metio.wtf')
-        comment('Mirrors Maven central with repository.metio.wtf')
+        comment('Global Maven configuration that enables access to all external/internal services')
         content(settings)
         isReplaceAll(true)
         serverCredentialMappings {
