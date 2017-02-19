@@ -51,7 +51,7 @@
 
   <mirrors>
     <mirror>
-      <id>repository.metio.wtf</id>
+      <id>metio-central</id>
       <mirrorOf>central</mirrorOf>
       <name>repository.metio.wtf</name>
       <url>https://repository.metio.wtf/repository/maven-public/</url>
