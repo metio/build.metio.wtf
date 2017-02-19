@@ -16,15 +16,6 @@ json.each {
                 numToKeep(5)
                 daysToKeep(7)
             }
-            scm {
-                git {
-                    branch(pipeline.branch)
-                    remote {
-                        github(project.repository)
-                        credentials('build-metio-wtf-github')
-                    }
-                }
-            }
             if (pipeline.trigger == "push") {
                 triggers {
                     githubPush()
