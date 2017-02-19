@@ -17,7 +17,12 @@ json.each {
                 daysToKeep(7)
             }
             scm {
-                github(project.repository, pipeline.branch)
+                git {
+                    remote {
+                        github(project.repository, pipeline.branch)
+                        credentials('build-metio-wtf-github')
+                    }
+                }
             }
             triggers {
                 githubPush()
@@ -25,7 +30,12 @@ json.each {
             definition {
                 cpsScm {
                     scm {
-                        github(project.repository, pipeline.branch)
+                        git {
+                            remote {
+                                github(project.repository, pipeline.branch)
+                                credentials('build-metio-wtf-github')
+                            }
+                        }
                     }
                     scriptPath(pipeline.path)
                 }
