@@ -7,5 +7,9 @@ configFiles {
         comment('Mirrors Maven central with repository.metio.wtf')
         content(settings)
         isReplaceAll(true)
+        serverCredentials('sonatype-nexus', 'ossrh')
+        serverCredentials('repository.metio.wtf', 'repository.metio.wtf')
+        serverCredentials('github', 'build-metio-wtf-github')
     }
+
 }
