@@ -27,8 +27,8 @@
         "name": "maven-build-process",
         "repository": "sebhoss/maven-build-process",
         "pipelines": [
-            {"name": "release", "path": "build/jenkins/Release"},
-            {"name": "preview", "path": "build/jenkins/Preview"}
+            {"name": "release", "path": "build/jenkins/Release", "branch": "master"},
+            {"name": "preview", "path": "build/jenkins/Preview", "branch": "!master"}
         ]
     },
     {

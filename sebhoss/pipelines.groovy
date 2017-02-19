@@ -8,19 +8,16 @@ def json = slurper.parseText(jsonText).findAll { it.pipelines }
 
 json.each {
     def project = it
-    out.println("${project.name}")
     project.pipelines.each {
         def pipeline = it
-        out.println("${pipeline.name}")
-        out.println("${pipeline.path}")
         folder("${org}/${project.name}")
-        pipelineJob("${org}/${project.name}-${pipeline.name}") {
+        pipelineJob("${org}/${project.name}/${project.name}-${pipeline.name}") {
             logRotator {
                 numToKeep(5)
                 daysToKeep(7)
             }
             scm {
-                github(project.repository)
+                github(project.repository, pipeline.branch)
             }
             triggers {
                 githubPush()
