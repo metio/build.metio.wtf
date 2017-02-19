@@ -3,19 +3,6 @@
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-  <servers>
-    <!-- credentials will be filled by Jenkins credentials -->
-    <server>
-      <id>sonatype-nexus</id>
-    </server>
-    <server>
-      <id>repository.metio.wtf</id>
-    </server>
-    <server>
-      <id>github</id>
-    </server>
-  </servers>
-
   <profiles>
     <profile>
       <id>release-into-sonatype-nexus</id>
