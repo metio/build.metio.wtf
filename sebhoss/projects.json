@@ -46,7 +46,7 @@
         "name": "yosql",
         "repository": "sebhoss/yosql",
         "pipelines": [
-            {"name": "release", "path": "build/jenkins/Release", "branch": "*/master", "trigger": "push"}
+            {"name": "release", "path": "build/jenkins/Release", "branch": "*/master", "trigger": "none"}
         ]
     }
 ]
