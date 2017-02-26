@@ -44,6 +44,9 @@
     },
     {
         "name": "yosql",
-        "repository": "sebhoss/yosql"
+        "repository": "sebhoss/yosql",
+        "pipelines": [
+            {"name": "release", "path": "build/jenkins/Release", "branch": "*/master", "trigger": "push"}
+        ]
     }
 ]
