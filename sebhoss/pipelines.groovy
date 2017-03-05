@@ -1,17 +1,17 @@
 import groovy.json.JsonSlurper
 
-def org = "sebhoss";
+def organization = "sebhoss";
 def slurper = new JsonSlurper()
 // https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands#reading-files-from-workspace
-def jsonText = readFileFromWorkspace("${org}/projects.json")
-def json = slurper.parseText(jsonText).findAll { it.pipelines }
+def jsonText = readFileFromWorkspace("${organization}/projects.json")
+def projects = slurper.parseText(jsonText).findAll { it.pipelines }
 
-json.each {
+projects.each {
     def project = it
     project.pipelines.each {
         def pipeline = it
-        folder("${org}/${project.name}")
-        pipelineJob("${org}/${project.name}/${project.name}-${pipeline.name}") {
+        folder("${organization}/${project.name}")
+        pipelineJob("${organization}/${project.name}/${project.name}-${pipeline.name}") {
             logRotator {
                 numToKeep(5)
                 daysToKeep(7)
@@ -19,6 +19,11 @@ json.each {
             if (pipeline.trigger == "push") {
                 triggers {
                     githubPush()
+                }
+            } else if (pipeline.trigger.startsWith("cron:")) {
+                def schedule = pipeline.trigger.drop(5) // '5' = "cron:".length
+                triggers {
+                    cron(schedule)
                 }
             }
             definition {
