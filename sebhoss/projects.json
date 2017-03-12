@@ -48,5 +48,9 @@
         "pipelines": [
             {"name": "release", "path": "build/jenkins/Release", "branch": "*/master", "trigger": "none"}
         ]
+    },
+    {
+        "name": "thats-interesting.java",
+        "repository": "sebhoss/thats-interesting.java"
     }
 ]
