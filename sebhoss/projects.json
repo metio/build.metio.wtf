@@ -52,5 +52,12 @@
     {
         "name": "thats-interesting.java",
         "repository": "sebhoss/thats-interesting.java"
+    },
+    {
+        "name": "javapoet-type-guesser",
+        "repository": "sebhoss/javapoet-type-guesser",
+        "pipelines": [
+            {"name": "release", "path": "build/jenkins/Release", "branch": "*/master", "trigger": "none"}
+        ]
     }
 ]
